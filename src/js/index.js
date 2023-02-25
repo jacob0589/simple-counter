@@ -13,6 +13,9 @@ import SecondsCounter from "./component/secondsCounter.jsx"
 let tiempoSegundos = 0
 let decenaSeconds=0
 let centenaSeconds =0 
+let forthCounter=0
+let fifthCounter=0
+let sixthCounter=0
 setInterval(() => {
     tiempoSegundos = tiempoSegundos + 1
     switch(true){
@@ -20,9 +23,21 @@ setInterval(() => {
             tiempoSegundos=0
             decenaSeconds++
             break;
-        case decenaSeconds>5:
+        case decenaSeconds>8:
             decenaSeconds=0
             centenaSeconds++
+            break;
+            case centenaSeconds>8:
+            centenaSeconds=0
+            forthCounter++
+            break;
+            case forthCounter>8:
+            forthCounter=0
+            fifthCounter++
+            break;
+            case fifthCounter>8:
+            fifthCounter=0
+            sixthCounter++
             break;
         default:
             break
@@ -33,5 +48,5 @@ setInterval(() => {
 
 
 
-ReactDOM.render(<SecondsCounter centenaSeconds={centenaSeconds} decenaSeconds={decenaSeconds} seconds={tiempoSegundos} />, document.querySelector("#app"));
+ReactDOM.render(<SecondsCounter sixthCounter={sixthCounter} fifthCounter={fifthCounter} forthCounter={forthCounter} centenaSeconds={centenaSeconds} decenaSeconds={decenaSeconds} seconds={tiempoSegundos} />, document.querySelector("#app"));
 }, 100)
